@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Tier Dropdown</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Select Your Options</h2>
+        <form method="post" action="/submit-form/">
+            <label for="business_name">Business Name:</label>
+            <select name="business_name" id="business_name" required>
+                <option value="">Select a Business</option>
+                {% for business in ['Dexafit Detroit', 'E3 Fitology', 'Dexa NYC'] %}
+                    <option value="{{ business }}">{{ business }}</option>
+                {% endfor %}
+            </select>
+
+            <!-- EXTRA BUTTONS SPECIFICALLY FOR DEXA NYC -->
+            <div id="extra-dropdown-container" style="display: none;">
+                <label for="test_type">Choose Test Type:</label>
+                <select name="test_type" id="test_type">
+                    <option value="">Select an Option</option>
+                    <option value="XC5QY4E6BNDQNX466RGBR7GW">DEXA Scan (Body Comp)</option>
+                    <option value="FA5G74AXYJSEHHGRDLPD6LVR">VO2 Max Performance</option>
+                    <option value="UX2YPO7K4MBO6UJXB4L7YDNM">VO2 + DEXA + RMR (Optimization Package)</option>
+                </select>
+            </div>
+
+            <div id="second-extra-dropdown-container" style="display: none;">
+                <label for="test_staff">Select Staff Member:</label>
+                <select name="test_staff" id="test_staff">
+                    <!-- Options will be dynamically inserted -->
+                </select>
+            </div>
+
+            <label for="date">Date:</label>
+            <input type="date" name="date" id="datePicker" required>
+
+            <button type="submit" style="background:black">Submit</button>
+        </form>
+
+        {% if appointments %}
+        <p style="size:12px">Available Appointments for <b>{{date}}</b></p>
+        <div class="time-slot-container">
+            {% for slot in appointments %}
+                {% set dt = slot.time[:16] | replace('T', ' ') %}
+                {% set hour = dt[11:13] | int %}
+                {% set minute = dt[14:16] %}
+                {% set meridian = 'AM' if hour < 12 else 'PM' %}
+                {% set formatted_hour = (hour - 12) if hour > 12 else (12 if hour == 0 else hour) %}
+
+                <button>{{ formatted_hour }}:{{ minute }}{{ meridian | lower }}</button>
+            {% endfor %}
+        
+        {% else %}
+            <br>
+            <button> No appointments available for this time slot</button>
+
+        </div>
+        {% endif %}
+
+    <script src="{{ url_for('static', path='script.js') }}"></script>
+</body>
+</html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const businessDropdown = document.getElementById("business_name");
+    const extradrop = document.getElementById("test_type");
+    const extraDropdownContainer = document.getElementById("extra-dropdown-container");
+    const secondDropdownContainer = document.getElementById("second-extra-dropdown-container");
+    const secondDropdown = document.getElementById("test_staff");
+
+    let today = new Date().toISOString().split("T")[0]; // Get today's date in YYYY-MM-DD format
+    document.getElementById("datePicker").setAttribute("min", today); // Set min attribute
+
+    // Function to update the second dropdown based on first selection
+    function updateSecondDropdown(selectedValue) {
+        secondDropdown.innerHTML = ""; // Clear existing options
+        let options = [];
+
+        if (selectedValue === "XC5QY4E6BNDQNX466RGBR7GW") {
+            options = [
+                { value: "TMFX3LMZJKj61PXb", text: "Andrew" },
+            ];
+        } else if (selectedValue === "FA5G74AXYJSEHHGRDLPD6LVR") {
+            options = [
+                { value: "TM6xJx4LcoqZHDYi", text: "Patrick" },
+            ];
+        } else if (selectedValue === "UX2YPO7K4MBO6UJXB4L7YDNM") {
+            options = [
+                {value: "TMFX3LMZJKj61PXb", text: "Andrew"},
+                {value: "TM6xJx4LcoqZHDYi", text: "Patrick"},
+            ];
+        }
+
+        if (options.length > 0) {
+            secondDropdownContainer.style.display = "block"; // Show the second dropdown
+            let defaultOption = document.createElement("option");
+            defaultOption.value = "";
+            defaultOption.textContent = "Select Staff Member";
+            secondDropdown.appendChild(defaultOption);
+
+            options.forEach(option => {
+                let opt = document.createElement("option");
+                opt.value = option.value;
+                opt.textContent = option.text;
+                secondDropdown.appendChild(opt);
+            });
+        } else {
+            secondDropdownContainer.style.display = "none"; // Hide if no options
+        }
+    }
+
+    // Show extra dropdown when 'Dexa NYC' is selected
+    businessDropdown.addEventListener("change", function () {
+        if (this.value === "Dexa NYC") {
+            extraDropdownContainer.style.display = "block";
+            secondDropdownContainer.style.display = "none"; // Reset second dropdown visibility
+        } else {
+            extraDropdownContainer.style.display = "none";
+            secondDropdownContainer.style.display = "none"; // Hide both dropdowns
+        }
+    });
+
+    // Show second dropdown when an option is selected in the first extra dropdown
+    extradrop.addEventListener("change", function () {
+        updateSecondDropdown(this.value);
+    });
+});
+
+document.querySelector("form").addEventListener("submit", function (event) {
+    if (secondDropdownContainer.style.display === "none") {
+        secondDropdown.value = "";  // ✅ Set to empty so FastAPI receives it
+    }
+});
+
+</script>

@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    text-align: left;
+}
+
+select, input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+select {
+    appearance: none; /* Removes default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: white;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='black'><polygon points='5,7 15,7 10,14'/></svg>"); 
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    padding: 10px 30px 10px 10px; /* Extra padding on the right for arrow */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.result {
+    background: #eaf7ea;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    color: #155724;
+    border: 1px solid #ccc;
+}
+
+.hidden {
+    display: none;
+}
+.time-slot-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
+    gap: 8px; /* Adjust spacing between buttons */
+    margin: 16px 0;
+}
+
+.time-slot {
+    background: linear-gradient(135deg, #FF7F50, #FF4500);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px; /* Smaller padding for compact buttons */
+    font-size: 12px; /* Smaller font */
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(74, 108, 247, 0.2);
+    text-align: center;
+    min-width: auto; /* No forced width */
+}
+
+.time-slot:hover {
+    background: linear-gradient(135deg, #FF7F50, #FF4500);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(74, 108, 247, 0.3);
+}
+
+.time-slot:active {
+    transform: translateY(0);
+}
+
+.time-slot:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.3);
+}
+
+.time-slot.selected {
+    background: linear-gradient(135deg, #4CAF50, #2E8B57);
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}

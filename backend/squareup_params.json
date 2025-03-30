@@ -1,0 +1,342 @@
+{
+    "XC5QY4E6BNDQNX466RGBR7GW": {
+        "service_variation_id": "XC5QY4E6BNDQNX466RGBR7GW",
+        "name": "DEXA Scan (Body Comp)",
+        "price_cents": 27500,
+        "service_time": 900,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            }
+        ]
+    },
+    "GVS6FXX7EYQGJP6QDIXKG3Y7": {
+        "service_variation_id": "GVS6FXX7EYQGJP6QDIXKG3Y7",
+        "name": "Bundle: DEXA Scan (Body Comp) - Package of 2 sessions",
+        "price_cents": 35000,
+        "service_time": 900,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            }
+        ]
+    },
+    "WQ5L4OGFHHFATJDPXZV5IWP2": {
+        "service_variation_id": "WQ5L4OGFHHFATJDPXZV5IWP2",
+        "name": "Bundle: DEXA Scan (Body Comp) - Package of 3 sessions",
+        "price_cents": 45000,
+        "service_time": 900,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            }
+        ]
+    },
+    "BSUMUV3CLROFSYKTNCC55VP3": {
+        "service_variation_id": "BSUMUV3CLROFSYKTNCC55VP3",
+        "name": "DEXA Scan (Bone Density Only)",
+        "price_cents": 30000,
+        "service_time": 1800,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            }
+        ]
+    },
+    "LZGVRVPOYTTD7BGW4VSHAE55": {
+        "service_variation_id": "LZGVRVPOYTTD7BGW4VSHAE55",
+        "name": "Body Composition and Bone Density",
+        "price_cents": 40000,
+        "service_time": 2100,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            }
+        ]
+    },
+    "BRLSEAZW6A35EDGYNAGMM7O3": {
+        "service_variation_id": "BRLSEAZW6A35EDGYNAGMM7O3",
+        "name": "Resting Metabolic Rate (RMR)",
+        "price_cents": 17900,
+        "service_time": 1800,
+        "staff": [
+            {
+                "long_name": "Patrick Edouard",
+                "employee_token": "TM6xJx4LcoqZHDYi"
+            }
+        ]
+    },
+    "QQCW2IR3XLUVTXUOUE6FVTXP": {
+        "service_variation_id": "QQCW2IR3XLUVTXUOUE6FVTXP",
+        "name": "Resting Metabolic Rate Testing + DEXA Body Composition",
+        "price_cents": 30000,
+        "service_time": 1800,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            },
+            {
+                "long_name": "Patrick Edouard",
+                "employee_token": "TM6xJx4LcoqZHDYi"
+            }
+        ]
+    },
+    "H2P35ZLWR6CXIMXZTZAQV7AQ": {
+        "service_variation_id": "H2P35ZLWR6CXIMXZTZAQV7AQ",
+        "name": "Biological Analysis (Dexa, RMR, Bloodwork)",
+        "price_cents": 60000,
+        "service_time": 900,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            },
+            {
+                "long_name": "Patrick Edouard",
+                "employee_token": "TM6xJx4LcoqZHDYi"
+            }
+        ]
+    },
+    "OAV4MTQTYFBQV36Q3DZQTIBO": {
+        "service_variation_id": "OAV4MTQTYFBQV36Q3DZQTIBO",
+        "name": "6 Week \"Starter Dose\" Semaglutide with Three ''Dexa'' DXA Body Composition Scan Weight Loss Program",
+        "price_cents": 49700,
+        "service_time": 900,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            },
+            {
+                "long_name": "Patrick Edouard",
+                "employee_token": "TM6xJx4LcoqZHDYi"
+            }
+        ]
+    },
+    "6JBKXPZS4THZL4HBWDDI7BSM": {
+        "service_variation_id": "6JBKXPZS4THZL4HBWDDI7BSM",
+        "name": "4 Week \"Starter Dose\" Tirzepatide with Three ''Dexa'' DXA Body Composition Scan Weight Loss Program",
+        "price_cents": 59700,
+        "service_time": 900,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            },
+            {
+                "long_name": "Patrick Edouard",
+                "employee_token": "TM6xJx4LcoqZHDYi"
+            }
+        ]
+    },
+    "FA5G74AXYJSEHHGRDLPD6LVR": {
+        "service_variation_id": "FA5G74AXYJSEHHGRDLPD6LVR",
+        "name": "VO2 Max Performance",
+        "price_cents": 25000,
+        "service_time": 1800,
+        "staff": [
+            {
+                "long_name": "Patrick Edouard",
+                "employee_token": "TM6xJx4LcoqZHDYi"
+            }
+        ]
+    },
+    "NJB4BWMVOQZYUDIGOVYZLICZ": {
+        "service_variation_id": "NJB4BWMVOQZYUDIGOVYZLICZ",
+        "name": "VO2 Max + Resting Metabolic Rate (RMR)",
+        "price_cents": 35000,
+        "service_time": 2700,
+        "staff": [
+            {
+                "long_name": "Patrick Edouard",
+                "employee_token": "TM6xJx4LcoqZHDYi"
+            }
+        ]
+    },
+    "UX2YPO7K4MBO6UJXB4L7YDNM": {
+        "service_variation_id": "UX2YPO7K4MBO6UJXB4L7YDNM",
+        "name": "VO2 + DEXA + RMR (Optimization Package)",
+        "price_cents": 55000,
+        "service_time": 2700,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            },
+            {
+                "long_name": "Patrick Edouard",
+                "employee_token": "TM6xJx4LcoqZHDYi"
+            }
+        ]
+    },
+    "5YB6FQEO4D2KFCXZM2R224U2": {
+        "service_variation_id": "5YB6FQEO4D2KFCXZM2R224U2",
+        "name": "Optimal Male Package (Blood Work, RMR, DEXA, VO2)",
+        "price_cents": 69999,
+        "service_time": 3600,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            },
+            {
+                "long_name": "Patrick Edouard",
+                "employee_token": "TM6xJx4LcoqZHDYi"
+            }
+        ]
+    },
+    "HULEOSR5W6ZCOFDBMVOUH57V": {
+        "service_variation_id": "HULEOSR5W6ZCOFDBMVOUH57V",
+        "name": "Optimal Female Package (Blood Work, RMR, DEXA, VO2)",
+        "price_cents": 69999,
+        "service_time": 3600,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            },
+            {
+                "long_name": "Patrick Edouard",
+                "employee_token": "TM6xJx4LcoqZHDYi"
+            }
+        ]
+    },
+    "F6JEHBA6CFLKOWBMVSFNVDDK": {
+        "service_variation_id": "F6JEHBA6CFLKOWBMVSFNVDDK",
+        "name": "VO2 MAX + DEXA",
+        "price_cents": 47500,
+        "service_time": 4500,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            },
+            {
+                "long_name": "Patrick Edouard",
+                "employee_token": "TM6xJx4LcoqZHDYi"
+            }
+        ]
+    },
+    "JLCDLU5NNNAHUAIH6YT2YA7P": {
+        "service_variation_id": "JLCDLU5NNNAHUAIH6YT2YA7P",
+        "name": "Regular",
+        "price_cents": 29700,
+        "service_time": 1800,
+        "staff": [
+            {
+                "long_name": "Patrick Edouard",
+                "employee_token": "TM6xJx4LcoqZHDYi"
+            },
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            }
+        ]
+    },
+    "RZVRJ7CJQROHA3HXHO2HKA4B": {
+        "service_variation_id": "RZVRJ7CJQROHA3HXHO2HKA4B",
+        "name": "Regular",
+        "price_cents": 34900,
+        "service_time": 1800,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            },
+            {
+                "long_name": "Patrick Edouard",
+                "employee_token": "TM6xJx4LcoqZHDYi"
+            }
+        ]
+    },
+    "PGDOWLOIS4QWIIFI5EBK4OJB": {
+        "service_variation_id": "PGDOWLOIS4QWIIFI5EBK4OJB",
+        "name": "6 Week \"Starter Dose\" Semaglutide with Three Sessions ''Dexa'' DXA Body Composition Scan Weight Loss Program",
+        "price_cents": 29700,
+        "service_time": 900,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            },
+            {
+                "long_name": "Patrick Edouard",
+                "employee_token": "TM6xJx4LcoqZHDYi"
+            }
+        ]
+    },
+    "YQH7I7USAFNRRLJKCJY36ERU": {
+        "service_variation_id": "YQH7I7USAFNRRLJKCJY36ERU",
+        "name": "4 Week \"Starter Dose\" Tirzepatide with Three Sessions  ''Dexa'' DXA Body Composition Scan Weight Loss Program",
+        "price_cents": 44900,
+        "service_time": 900,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            },
+            {
+                "long_name": "Patrick Edouard",
+                "employee_token": "TM6xJx4LcoqZHDYi"
+            }
+        ]
+    },
+    "PL7F37BSGDCQJUJMLDV3XGLR": {
+        "service_variation_id": "PL7F37BSGDCQJUJMLDV3XGLR",
+        "name": "Regular",
+        "price_cents": 39900,
+        "service_time": 1800,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            },
+            {
+                "long_name": "Patrick Edouard",
+                "employee_token": "TM6xJx4LcoqZHDYi"
+            }
+        ]
+    },
+    "25U56OA6UYKGDRJ5Z4RATKGU": {
+        "service_variation_id": "25U56OA6UYKGDRJ5Z4RATKGU",
+        "name": "DEXA Scan (Body Comp)",
+        "price_cents": 17900,
+        "service_time": 900,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            }
+        ]
+    },
+    "A3VWVFZNUYFYHAOL7OZGF6BM": {
+        "service_variation_id": "A3VWVFZNUYFYHAOL7OZGF6BM",
+        "name": "Bundle: DEXA Scan (Body Comp) - Package of two sessions",
+        "price_cents": 29900,
+        "service_time": 900,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            }
+        ]
+    },
+    "K4KAVGAROLNHCTINB5HAVRGU": {
+        "service_variation_id": "K4KAVGAROLNHCTINB5HAVRGU",
+        "name": "Bundle: DEXA Scan (Body Comp) - Package of three sessions",
+        "price_cents": 39900,
+        "service_time": 900,
+        "staff": [
+            {
+                "long_name": "Andrew Schmitt",
+                "employee_token": "TMFX3LMZJKj61PXb"
+            }
+        ]
+    }
+}
