@@ -42,24 +42,26 @@
             <button type="submit" style="background:black">Submit</button>
         </form>
 
-        {% if appointments %}
-        <p style="size:12px">Available Appointments for <b>{{date}}</b></p>
-        <div class="time-slot-container">
-            {% for slot in appointments %}
-                {% set dt = slot.time[:16] | replace('T', ' ') %}
-                {% set hour = dt[11:13] | int %}
-                {% set minute = dt[14:16] %}
-                {% set meridian = 'AM' if hour < 12 else 'PM' %}
-                {% set formatted_hour = (hour - 12) if hour > 12 else (12 if hour == 0 else hour) %}
+        {% if form_submitted %}
+            {% if appointments %}
+            <p style="size:12px">Available Appointments for <b>{{date}}</b></p>
+            <div class="time-slot-container">
+                {% for slot in appointments %}
+                    {% set dt = slot.time[:16] | replace('T', ' ') %}
+                    {% set hour = dt[11:13] | int %}
+                    {% set minute = dt[14:16] %}
+                    {% set meridian = 'AM' if hour < 12 else 'PM' %}
+                    {% set formatted_hour = (hour - 12) if hour > 12 else (12 if hour == 0 else hour) %}
 
-                <button>{{ formatted_hour }}:{{ minute }}{{ meridian | lower }}</button>
-            {% endfor %}
-        
-        {% else %}
-            <br>
-            <button> No appointments available for this time slot</button>
+                    <button>{{ formatted_hour }}:{{ minute }}{{ meridian | lower }}</button>
+                {% endfor %}
+            
+            {% else %}
+                <br>
+                <button> No appointments available for this time slot</button>
 
-        </div>
+            </div>
+            {% endif %}
         {% endif %}
 
     <script src="{{ url_for('static', path='script.js') }}"></script>

@@ -44,4 +44,5 @@ async def process_form(
         "date": date,
         "submitted": True,
         "appointments": response['slots'],
+        "form_submitted": True,
     })
