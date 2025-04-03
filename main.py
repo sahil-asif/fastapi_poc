@@ -60,7 +60,7 @@ async def get_appointments(data: FormData):
     #     "form_submitted": True,
     # })
 
-@app.post('/confirm_appointment/')
+@app.post('/check_appointment_availability/')
 async def confirm_appointment(data: FormData):
     function_mappings = {
         'Dexafit Detroit': 'dexafit',
@@ -78,4 +78,4 @@ async def confirm_appointment(data: FormData):
             found = True
             break
 
-    return {'message': 'Appointment confirmed!' if found else 'Appointment not found.'}
+    return {'message': 'Appointment available!' if found else 'Appointment not found.'}

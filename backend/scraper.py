@@ -129,5 +129,3 @@ def get_squareup(date, **kwargs):
 #     return appointments
 
 # print(get_available_slots('squareup', '2025-03-31'))
-
-print(get_squareup('2025-04-22'))
