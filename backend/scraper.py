@@ -9,10 +9,15 @@ def get_dexafit(date, **kwargs):
             f'&appointmentTypeId=67627001&calendarId=6528790&startDate={date}&maxDays=1&timezone=America%2FNew_York'
     
     appointments = requests.get(url).json()
-    appointments = [{**value, 'duration': 30} for value in appointments[date]] \
-                    if date in appointments else {}
+
+    if date not in appointments:
+        return {'error': 'No appointments available for the selected date.'}
     
-    return {'slots': appointments}
+    for appointment in appointments[date]:
+        time = appointment['time'].split('T')[1]
+        appointment['formatted_time'] = datetime.strptime(time, '%H:%M:%S%z').strftime('%I:%M %p')
+    
+    return {'slots': appointments[date]}
 
 def get_e3fitology(date, **kwargs):
     eastern = pytz.timezone('America/New_York') # UTC -4:00
@@ -22,7 +27,6 @@ def get_e3fitology(date, **kwargs):
         naive_date = datetime.strptime(date, '%Y-%m-%d')
         date = naive_date.strftime('%Y-%m-%d')
         localized_date = eastern.localize(naive_date)
-
     except ValueError:
         return {'error': 'Invalid date format. Please use YYYY-MM-DD.'}
 
@@ -32,11 +36,22 @@ def get_e3fitology(date, **kwargs):
             'startDate={start_timestamp}&endDate={end_timestamp}&timezone=America%2FNew_York&sendSeatsPerSlot=false'
 
     response = requests.get(url.format(start_timestamp=start, end_timestamp=end))
-    appointments = response.json()[date]['slots'] if date in response.json() else {}
-    appointments = [{'time': appointment, 'duration': 30} for appointment in appointments]
 
-    return {'slots': appointments}
+    if date not in response.json():
+        return {'error': 'No appointments available for the selected date.'}
 
+    appointments = {'slots': []}
+
+    for appointment in response.json()[date]['slots']:
+        time = appointment.split('T')[1]        
+        
+        dict_ = {}
+        dict_['time'] = appointment
+        dict_['formatted_time'] = datetime.strptime(time, '%H:%M:%S%z').strftime('%I:%M %p')
+
+        appointments['slots'].append(dict_)
+
+    return appointments
 
 def get_squareup(date, **kwargs):
     eastern = pytz.timezone('America/New_York') # UTC -4:00
@@ -73,8 +88,8 @@ def get_squareup(date, **kwargs):
                     },
                     'location_id': 'LHM69S0RE35FM',
                     'segment_filters': [{
-                        'service_variation_id': service_variation_id,
-                        'team_member_id_filter': {'any': [staff_id]}
+                        'service_variation_id': service_variation_id or 'UX2YPO7K4MBO6UJXB4L7YDNM',
+                        'team_member_id_filter': {'any': [staff_id or 'TMFX3LMZJKj61PXb']}
                     }],
                 }
             }
@@ -87,16 +102,19 @@ def get_squareup(date, **kwargs):
     # Process the response
     if response.status_code == 200:
         data = response.json()
-        appointments = []
+        appointments = {'slots': []}
 
         # Extract the available slots from the response
         for slot in data.get('availability', []):
-            appointments.append({
-                'time': datetime.fromtimestamp(slot['start'], tz=eastern).strftime('%Y-%m-%dT%H:%M:%S-04:00'),
-                'duration': slot['end'] - slot['start']
+            raw_time = datetime.fromtimestamp(slot['start'], tz=eastern).strftime('%Y-%m-%dT%H:%M:%S-04:00')
+            time = raw_time.split('T')[1]
+
+            appointments['slots'].append({
+                'time': raw_time,
+                'formatted_time': datetime.strptime(time, '%H:%M:%S%z').strftime('%I:%M %p'),
             })
 
-        return {'slots': appointments}
+        return appointments
     else:
         return {'error': f'API request failed with status code {response.status_code}'}
 
@@ -111,3 +129,5 @@ def get_squareup(date, **kwargs):
 #     return appointments
 
 # print(get_available_slots('squareup', '2025-03-31'))
+
+print(get_squareup('2025-04-22'))
