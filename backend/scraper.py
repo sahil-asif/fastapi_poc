@@ -120,6 +120,10 @@ def get_squareup(date, **kwargs):
         # Extract the available slots from the response
         for slot in data.get('availability', []):
             raw_time = datetime.fromtimestamp(slot['start'], tz=eastern).strftime('%Y-%m-%dT%H:%M:%S-04:00')
+            
+            if date.strftime('%Y-%m-%d') not in raw_time:
+                continue
+
             time = raw_time.split('T')[1]
 
             appointments['slots'].append({
@@ -130,7 +134,6 @@ def get_squareup(date, **kwargs):
         return appointments
     else:
         return {'error': f'API request failed with status code {response.status_code}'}
-
 
 # def get_available_slots(business_name, date):
 #     asd = {
