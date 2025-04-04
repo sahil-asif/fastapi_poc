@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
 import pytz
 import requests
@@ -59,14 +59,27 @@ def get_squareup(date, **kwargs):
     #     params = json.load(file)
 
     url = 'https://app.squareup.com/appointments/api/buyer/availability'
+    
+    date = datetime.strptime(date, '%Y-%m-%d')
+
+    current_month = datetime.now().month
+    month = date.month
 
     # Parse the date and create date range for the request
-    date = datetime.strptime(date, '%Y-%m-%d').strftime('%Y-%m-%d')
-    start_date = f'{date}T00:00:00.000-04:00'
-    # start_date = '2025-03-30T00:00:00.000-04:00'
-    end_date = f'{date}T23:59:59.999-04:00'
-    # end_date = '2025-04-01T04:00:00.000-04:00'
+    # date = date.strftime('%Y-%m-%d')
+    # start_date = f'{datetime.now().strftime("%Y-%m-%d")}T00:00:00.000-04:00'
+    # end_date = f'{date}T22:59:59.999-04:00'
 
+    if month == current_month:
+        current_date = datetime.now()
+        start_date = f'{current_date.strftime("%Y-%m-%d")}T00:00:00.000-04:00'
+    elif month > current_month:
+        current_date = date.replace(day=1)
+        start_date = f'{current_date.strftime("%Y-%m-%d")}T00:00:00.000-04:00'
+    else:
+        return {'slots': []}
+    
+    end_date = f'{(current_date + timedelta(days=31)).strftime("%Y-%m-%d")}T22:59:59.999-04:00'
 
     service_variation_id = kwargs.get('type', '')
     staff_id = kwargs.get('staff', '')
@@ -88,8 +101,8 @@ def get_squareup(date, **kwargs):
                     },
                     'location_id': 'LHM69S0RE35FM',
                     'segment_filters': [{
-                        'service_variation_id': service_variation_id or 'UX2YPO7K4MBO6UJXB4L7YDNM',
-                        'team_member_id_filter': {'any': [staff_id or 'TMFX3LMZJKj61PXb']}
+                        'service_variation_id': service_variation_id or 'NJB4BWMVOQZYUDIGOVYZLICZ',
+                        'team_member_id_filter': {'any': [staff_id or 'TM6xJx4LcoqZHDYi']}
                     }],
                 }
             }
