@@ -26,8 +26,8 @@ app = FastAPI()
 class FormData(BaseModel):
     business_name: str
     date: str
-    test_type: str = ""
-    test_staff: str = ""
+    sv_id: str = ""
+    emp_id: str = ""
     time: str = ""
 
 
@@ -41,14 +41,14 @@ async def get_appointments(data: FormData):
     }
 
     json_response = globals()[f'get_{function_mappings[data.business_name]}'] \
-                             (data.date, type=data.test_type, staff=data.test_staff)
+                             (data.date, type=data.sv_id, staff=data.emp_id)
     
     return {
         **json_response, 
         'business_name': data.business_name,
         'date': data.date,
-        'test_type': data.test_type,
-        'test_staff': data.test_staff,
+        'sv_id': data.sv_id,
+        'emp_id': data.emp_id,
     }
     
     # return templates.TemplateResponse("index.html", {
@@ -69,7 +69,7 @@ async def confirm_appointment(data: FormData):
     }
 
     json_response = globals()[f'get_{function_mappings[data.business_name]}'] \
-                             (data.date, type=data.test_type, staff=data.test_staff)
+                             (data.date, type=data.sv_id, staff=data.emp_id)
     
     found = False
 
@@ -79,3 +79,22 @@ async def confirm_appointment(data: FormData):
             break
 
     return {'message': 'Appointment available!' if found else 'Appointment not found.'}
+
+dict_ = [
+    {
+        "name": "VO2 Max + Resting Metabolic Rate (RMR)",
+        "sv_id": "NJB4BWMVOQZYUDIGOVYZLICZ",
+        "staff": ["Patrick Edouard"],
+        "emp_id": ["TM6xJx4LcoqZHDYi"]
+    },
+    {
+        "name": "VO2 + DEXA + RMR (Optimization Package)",
+        "sv_id": "UX2YPO7K4MBO6UJXB4L7YDNM",
+        "staff": ["Patrick Edouard", "Andrew Schmitt"],
+        "emp_id": ["TM6xJx4LcoqZHDYi", "TMFX3LMZJKj61PXb"]
+    }
+]
+
+@app.get("/get_dexafit_packages/")
+async def get_dexafit_packages():
+    return dict_
